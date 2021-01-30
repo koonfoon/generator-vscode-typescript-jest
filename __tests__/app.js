@@ -19,7 +19,7 @@ describe("generator-vscode-typescript-jest:app", () => {
       "jest.config.js",
       "package-lock.json",
       "package.json",
-      "tsconfig.json"
+      "tsconfig.json",
     ]);
   });
 });
