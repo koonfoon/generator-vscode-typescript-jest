@@ -11,6 +11,15 @@ describe("generator-vscode-typescript-jest:app", () => {
   });
 
   it("creates files", () => {
-    assert.file(["dummyfile.txt"]);
+    assert.file([
+      ".eslintrc.js",
+      ".gitignore",
+      ".prettierignore",
+      ".prettierrc.js",
+      "jest.config.js",
+      "package-lock.json",
+      "package.json",
+      "tsconfig.json"
+    ]);
   });
 });
