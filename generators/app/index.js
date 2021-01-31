@@ -63,6 +63,7 @@ module.exports = class extends Generator {
       this.templatePath("tsconfig.json"),
       this.destinationPath("tsconfig.json")
     );
+    // Creating project directory
     fse.ensureDir("./src");
     fse.ensureDir("./build");
     fse.ensureDir("./__tests__");

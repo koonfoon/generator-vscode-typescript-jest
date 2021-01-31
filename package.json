@@ -1,6 +1,6 @@
 {
   "name": "generator-vscode-typescript-jest",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "vscode with typescript and jest project generator",
   "homepage": "",
   "author": {
