@@ -56,7 +56,7 @@ Directories:
 
 This generator will not generate .git. Please run `git init` command yourself.
 
-## Recommended actions after project skeleton generated
+## Recommended actions after project skeleton is generated
 
 * Execute `git init`. As mentioned above, no .git is generated
 * Run command `npx npm-update-all` for updating all dependencies, as some packages may have new version release since this generator had published.
