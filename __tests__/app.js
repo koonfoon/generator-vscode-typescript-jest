@@ -17,7 +17,6 @@ describe("generator-vscode-typescript-jest:app", () => {
       ".prettierignore",
       ".prettierrc.js",
       "jest.config.js",
-      "package-lock.json",
       "package.json",
       "tsconfig.json",
     ]);

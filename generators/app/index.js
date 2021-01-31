@@ -52,10 +52,10 @@ module.exports = class extends Generator {
       this.templatePath("jest.config.js"),
       this.destinationPath("jest.config.js")
     );
-    this.fs.copy(
-      this.templatePath("package-lock.json"),
-      this.destinationPath("package-lock.json")
-    );
+    // This.fs.copy(
+    //   this.templatePath("package-lock.json"),
+    //   this.destinationPath("package-lock.json")
+    // );
     this.fs.copy(
       this.templatePath("package.json"),
       this.destinationPath("package.json")
