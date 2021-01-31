@@ -1,9 +1,19 @@
 # generator-vscode-typescript-jest [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> vscode with typescript and jest project generator
+## Description
 
-## Installation
+vscode with typescript and jest project generator. This package generate the project skeleton for visual studio code that use typescript as source code, and jest for unit test.
 
-First, install [Yeoman](http://yeoman.io) and generator-vscode-typescript-jest using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+## Usage
+
+Run the [npm](https://www.npmjs.com/) command (we assume you have pre-installed latest [node.js](https://nodejs.org/)).
+
+```bash
+npm init yo vscode-typescript-jest
+```
+
+Or
+
+Install [Yeoman](http://yeoman.io) and generator-vscode-typescript-jest using [npm](https://www.npmjs.com/).
 
 ```bash
 npm install -g yo
