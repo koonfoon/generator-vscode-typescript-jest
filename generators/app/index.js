@@ -16,11 +16,29 @@ module.exports = class extends Generator {
     );
 
     const prompts = [
+      // {
+      //   type: "confirm",
+      //   name: "someAnswer",
+      //   message: "Would you like to enable this option?",
+      //   default: true,
+      // },
+      // Ask user for project name
       {
-        type: "confirm",
-        name: "someAnswer",
-        message: "Would you like to enable this option?",
-        default: true,
+        type: "input",
+        name: "appName",
+        message: "Your project name",
+        default: this.appname,
+      },
+      {
+        type: "input",
+        name: "appStartVersion",
+        message: "Project version",
+        default: "0.0.0",
+      },
+      {
+        type: "input",
+        name: "appDescription",
+        message: "Project description",
       },
     ];
 
@@ -56,9 +74,10 @@ module.exports = class extends Generator {
     //   this.templatePath("package-lock.json"),
     //   this.destinationPath("package-lock.json")
     // );
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath("package.json"),
-      this.destinationPath("package.json")
+      this.destinationPath("package.json"),
+      { packageAppName: this.props.appName }
     );
     this.fs.copy(
       this.templatePath("tsconfig.json"),
@@ -71,6 +90,8 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.installDependencies();
+    this.installDependencies({
+      bower: false,
+    });
   }
 };
