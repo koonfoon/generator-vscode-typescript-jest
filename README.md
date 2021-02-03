@@ -80,5 +80,5 @@ MIT © [koonfoon]()
 [travis-url]: https://travis-ci.com/koonfoon/generator-vscode-typescript-jest
 [daviddm-image]: https://david-dm.org/koonfoon/generator-vscode-typescript-jest.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/koonfoon/generator-vscode-typescript-jest
-[coveralls-image]: https://coveralls.io/repos//generator-vscode-typescript-jest/badge.svg
-[coveralls-url]: https://coveralls.io/r//generator-vscode-typescript-jest
+[coveralls-image]: https://coveralls.io/repos/koonfoon/generator-vscode-typescript-jest/badge.svg
+[coveralls-url]: https://coveralls.io/r/koonfoon/generator-vscode-typescript-jest
