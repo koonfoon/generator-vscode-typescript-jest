@@ -50,7 +50,7 @@ Directories:
 
 * ./src (typescript source codes go here)
 * ./\_\_tests\_\_ (test codes go here)
-* ./buld (auto transpiled javascript generate here)
+* ./build (auto transpiled javascript generate here)
 
 ## No .git
 
