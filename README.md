@@ -1,7 +1,7 @@
 # generator-vscode-typescript-jest [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 ## Description
 
-vscode with typescript and jest project generator. This package generate the project skeleton for visual studio code that use [typescript](https://www.typescriptlang.org/) as source code, and [jest](https://jestjs.io/) for unit test, [eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) for linting and [prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for prettier codes 
+vscode with typescript and jest project generator. This package generate the project skeleton for visual studio code that use [typescript](https://www.typescriptlang.org/) as source code, and [jest](https://jestjs.io/) for unit test, [eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) for linting and [prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for prettier codes. This generator also compose with [generator-license](https://github.com/jozefizso/generator-license).
 
 ## Prerequisite
 
