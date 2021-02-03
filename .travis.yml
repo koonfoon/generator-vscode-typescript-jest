@@ -10,7 +10,7 @@ script:
   - npm run test:coveralls
 
 after_success:
-  - echo "Test Success"
+  - echo -e "Test Success"
 
 after_script: cat ./coverage/lcov.info | coveralls
 
