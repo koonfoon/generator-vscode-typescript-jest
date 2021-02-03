@@ -16,21 +16,41 @@ module.exports = class extends Generator {
     );
 
     const prompts = [
+      // {
+      //   type: "confirm",
+      //   name: "someAnswer",
+      //   message: "Would you like to enable this option?",
+      //   default: true,
+      // },
+      // Ask user for project name
       {
-        type: "confirm",
-        name: "someAnswer",
-        message: "Would you like to enable this option?",
-        default: true,
+        type: "input",
+        name: "appName",
+        message: "Your project name",
+        default: this.appname,
+      },
+      {
+        type: "input",
+        name: "appStartVersion",
+        message: "Project version",
+        default: "0.0.0",
+      },
+      {
+        type: "input",
+        name: "appDescription",
+        message: "Project description:",
       },
     ];
 
     return this.prompt(prompts).then((props) => {
       // To access props later use this.props.someAnswer;
       this.props = props;
+      this.composeWith(require.resolve("generator-license"));
     });
   }
 
   writing() {
+    // Copying all config files to project root directory
     this.fs.copy(
       this.templatePath(".eslintrc.js"),
       this.destinationPath(".eslintrc.js")
@@ -51,13 +71,18 @@ module.exports = class extends Generator {
       this.templatePath("jest.config.js"),
       this.destinationPath("jest.config.js")
     );
-    this.fs.copy(
-      this.templatePath("package-lock.json"),
-      this.destinationPath("package-lock.json")
-    );
-    this.fs.copy(
+    // This.fs.copy(
+    //   this.templatePath("package-lock.json"),
+    //   this.destinationPath("package-lock.json")
+    // );
+    this.fs.copyTpl(
       this.templatePath("package.json"),
-      this.destinationPath("package.json")
+      this.destinationPath("package.json"),
+      {
+        packageAppName: this.props.appName,
+        packageAppStartVersion: this.props.appStartVersion,
+        packageAppDescription: this.props.appDescription,
+      }
     );
     this.fs.copy(
       this.templatePath("tsconfig.json"),
@@ -70,6 +95,8 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.installDependencies();
+    this.installDependencies({
+      bower: false,
+    });
   }
 };
