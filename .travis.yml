@@ -7,7 +7,7 @@ install:
   - npm ci --no-optional
 
 script:
-  - npm test
+  - npm run test:coveralls
 
 after_success:
   - echo "Test Success"
