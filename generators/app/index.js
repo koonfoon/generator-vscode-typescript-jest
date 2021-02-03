@@ -40,12 +40,20 @@ module.exports = class extends Generator {
         name: "appDescription",
         message: "Project description:",
       },
+      {
+        type: "input",
+        name: "appAuthorName",
+        message: "Your name:",
+        default: this.user.git.name,
+      },
     ];
 
     return this.prompt(prompts).then((props) => {
       // To access props later use this.props.someAnswer;
       this.props = props;
-      this.composeWith(require.resolve("generator-license"));
+      this.composeWith(require.resolve("generator-license"), {
+        name: this.props.appAuthorName,
+      });
     });
   }
 
@@ -82,6 +90,7 @@ module.exports = class extends Generator {
         packageAppName: this.props.appName,
         packageAppStartVersion: this.props.appStartVersion,
         packageAppDescription: this.props.appDescription,
+        packageAppAuthor: this.props.appAuthorName,
       }
     );
     this.fs.copy(

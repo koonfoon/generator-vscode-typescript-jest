@@ -9,7 +9,7 @@
     "test": "jest"
   },
   "type": "module",
-  "author": "koonfoon",
+  "author": "<%= packageAppAuthor %>",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
