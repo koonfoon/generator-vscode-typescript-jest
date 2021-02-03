@@ -9,5 +9,7 @@ install:
 script:
   - npm test
 
+after_script: cat ./coverage/lcov.info | coveralls
+
 after_success:
   - echo "Test Success"
