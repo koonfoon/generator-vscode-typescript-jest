@@ -38,13 +38,14 @@ module.exports = class extends Generator {
       {
         type: "input",
         name: "appDescription",
-        message: "Project description",
+        message: "Project description:",
       },
     ];
 
     return this.prompt(prompts).then((props) => {
       // To access props later use this.props.someAnswer;
       this.props = props;
+      this.composeWith(require.resolve("generator-license"));
     });
   }
 
@@ -77,7 +78,11 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath("package.json"),
       this.destinationPath("package.json"),
-      { packageAppName: this.props.appName }
+      {
+        packageAppName: this.props.appName,
+        packageAppStartVersion: this.props.appStartVersion,
+        packageAppDescription: this.props.appDescription,
+      }
     );
     this.fs.copy(
       this.templatePath("tsconfig.json"),

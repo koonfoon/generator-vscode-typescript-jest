@@ -1,7 +1,7 @@
 {
   "name": "<%= packageAppName %>",
-  "version": "0.0.0",
-  "description": "New girl watcher",
+  "version": "<%= packageAppStartVersion %>",
+  "description": "<%= packageAppDescription %>",
   "main": "./build/index.js",
   "scripts": {
     "tsc": "tsc --noEmitOnError",
