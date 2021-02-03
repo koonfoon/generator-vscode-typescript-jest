@@ -12,5 +12,5 @@ script:
 after_success:
   - echo -e "Test Success"
 
-after_script: cat ./coverage/lcov.info | coveralls
+## after_script: cat ./coverage/lcov.info | coveralls
 
