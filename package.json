@@ -76,7 +76,9 @@
   },
   "scripts": {
     "pretest": "eslint .",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test:coveralls": "jest --coverage",
+    "test:coverallsLocal": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "license": "MIT"
 }
