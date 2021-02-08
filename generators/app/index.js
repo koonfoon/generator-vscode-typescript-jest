@@ -68,8 +68,8 @@ module.exports = class extends Generator {
       this.destinationPath(".prettierignore")
     );
     this.fs.copy(
-      this.templatePath(".prettierrc.js"),
-      this.destinationPath(".prettierrc.js")
+      this.templatePath(".prettierrc.json"),
+      this.destinationPath(".prettierrc.json")
     );
     this.fs.copy(
       this.templatePath("jest.config.js"),
