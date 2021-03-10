@@ -80,7 +80,7 @@ module.exports = class extends Generator {
     //   this.destinationPath("package-lock.json")
     // );
     this.fs.copyTpl(
-      this.templatePath("package.json"),
+      this.templatePath("package.json.temp"),
       this.destinationPath("package.json"),
       {
         packageAppName: this.props.appName,
