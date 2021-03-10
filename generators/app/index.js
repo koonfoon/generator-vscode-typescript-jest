@@ -90,7 +90,7 @@ module.exports = class extends Generator {
       }
     );
     this.fs.copy(
-      this.templatePath("tsconfig.json"),
+      this.templatePath("tsconfig.json.temp"),
       this.destinationPath("tsconfig.json")
     );
     // Creating project directory
