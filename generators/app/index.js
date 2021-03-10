@@ -68,7 +68,7 @@ module.exports = class extends Generator {
       this.destinationPath(".prettierignore")
     );
     this.fs.copy(
-      this.templatePath(".prettierrc.json"),
+      this.templatePath(".prettierrc.json.temp"),
       this.destinationPath(".prettierrc.json")
     );
     this.fs.copy(
