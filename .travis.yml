@@ -4,13 +4,14 @@ node_js:
   - node
 
 install:
-  - npm ci --no-optional
+  - npm ci
 
 script:
-  - npm run test:coverallsVerbose
+  - npm run test
 
 after_success:
   - echo -e "Test Success"
 
-## after_script: cat ./coverage/lcov.info | coveralls
+after_script:
+  - sed -i 's|SF:../../home/travis/build/koonfoon/generator-vscode-typescript-jest/|SF:|g' coverage/lcov.info && cat ./coverage/lcov.info | coveralls -v
 
