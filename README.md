@@ -5,7 +5,7 @@ vscode with typescript and jest project generator. This package generate the pro
 
 ## Prerequisite
 
-Install the following to vscode:
+Install the following extensions to vscode:
 
 * [eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 * [prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
@@ -39,7 +39,6 @@ yo vscode-typescript-jest
 Files:
 
 * .eslintrc.js
-* .gitignore (but no .git)
 * .prettierignore
 * .prettierrc.js
 * jest.config.js
