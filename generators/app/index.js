@@ -60,8 +60,8 @@ module.exports = class extends Generator {
   writing() {
     // Copying all config files to project root directory
     this.fs.copy(
-      this.templatePath(".eslintrc.js.temp"),
-      this.destinationPath(".eslintrc.js")
+      this.templatePath(".eslintrc.json.temp"),
+      this.destinationPath(".eslintrc.json")
     );
     this.fs.copy(
       this.templatePath(".prettierignoreTemp"),

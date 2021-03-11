@@ -16,7 +16,7 @@ describe("generator-vscode-typescript-jest:app", () => {
 
   it("creates files", () => {
     assert.file([
-      ".eslintrc.js",
+      ".eslintrc.json",
       ".prettierignore",
       ".prettierrc.json",
       "jest.config.js",
