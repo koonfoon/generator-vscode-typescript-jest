@@ -38,9 +38,9 @@ yo vscode-typescript-jest
 
 Files:
 
-* .eslintrc.js
+* .eslintrc.json
 * .prettierignore
-* .prettierrc.js
+* .prettierrc.json
 * jest.config.js
 * package.json
 * tsconfig.json
