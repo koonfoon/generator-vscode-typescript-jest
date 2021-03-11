@@ -67,6 +67,13 @@ This generator will not generate .git. Please run `git init` command yourself.
  * Yeoman can be too opinionated at times but is easily convinced not to be.
  * Feel free to [learn more about Yeoman](http://yeoman.io/).
 
+## Change logs
+
+* v0.2.38
+    * change .eslintrc.js to json file (work better with vscode v1.53)
+    * change .prettierrc.js to json file (work better with vscode v1.53
+    )
+
 ## License
 
 MIT © [koonfoon]()
