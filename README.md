@@ -13,13 +13,17 @@ Install the following extensions to vscode:
 
 ## Usage
 
-Run [npm](https://www.npmjs.com/) command (we assume you have pre-installed latest [node.js](https://nodejs.org/)).
+#### Method 1:
+
+In the project root directory, run [npm](https://www.npmjs.com/) command (we assume you have pre-installed latest [node.js](https://nodejs.org/)).
 
 ```bash
 npm init yo vscode-typescript-jest
 ```
 
 Or
+
+#### Method 2:
 
 Install [Yeoman](http://yeoman.io) and generator-vscode-typescript-jest using [npm](https://www.npmjs.com/).
 
@@ -28,7 +32,7 @@ npm install -g yo
 npm install -g generator-vscode-typescript-jest
 ```
 
-Then generate your new project:
+Then on project root directory generate your new project:
 
 ```bash
 yo vscode-typescript-jest
