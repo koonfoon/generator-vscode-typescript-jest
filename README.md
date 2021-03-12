@@ -48,6 +48,7 @@ Files:
 - jest.config.js
 - package.json
 - tsconfig.json
+- LICENSE
 
 Directories:
 
