@@ -74,6 +74,8 @@ This generator will not generate .git. Please run `git init` command yourself.
 
 ## Change logs
 
+- vNESXT
+  - some implementation
 - v0.2.38
   - change .eslintrc.js to json file (work better with vscode v1.53)
   - change .prettierrc.js to json file (work better with vscode v1.53)
