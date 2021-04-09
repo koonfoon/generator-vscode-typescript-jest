@@ -1,7 +1,10 @@
 language: node_js
 
+services:
+  - docker
+
 node_js:
-  - node
+  - "14.x"
 
 install:
   - npm ci
@@ -15,3 +18,9 @@ after_success:
 after_script:
   - sed -i 's|SF:../../home/travis/build/koonfoon/generator-vscode-typescript-jest/|SF:|g' coverage/lcov.info && cat ./coverage/lcov.info | coveralls -v
 
+before_deploy:
+  - docker pull gittools/gitversion:5.6.8-ubuntu.20.04-x64-5.0
+  - export GitVersion_FullSemVer=$(docker run --rm -v "$(pwd):/repo" pull gittools/gitversion:5.6.8-ubuntu.20.04-x64-5.0 /repo -output json -showvariable FullSemVer)
+
+deploy:
+  - provider: npm
