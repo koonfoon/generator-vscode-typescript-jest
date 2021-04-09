@@ -25,6 +25,7 @@
     "husky": "*",
     "jest": "*",
     "lint-staged": "*",
+    "np": "^7.4.0",
     "prettier": "*",
     "yeoman-assert": "*",
     "yeoman-test": "*"
