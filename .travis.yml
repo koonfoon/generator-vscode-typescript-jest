@@ -13,7 +13,7 @@ script:
   - npm run test
 
 after_success:
-  - git branch
+  - git branch --show-current
   - echo -e "Test Success"
   - docker pull gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
   - docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo
