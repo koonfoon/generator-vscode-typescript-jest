@@ -21,6 +21,7 @@ after_script:
 before_deploy:
   - docker pull gittools/gitversion:5.6.8-ubuntu.20.04-x64-5.0
   - export GitVersion_FullSemVer=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.6.8-ubuntu.20.04-x64-5.0 /repo -output json -showvariable FullSemVer)
+  - echo $GitVersion_FullSemVer
   - npm run release -- $GitVersion_FullSemVer --no-tests --no-publish --no-yarn --message "'%s' +semver:skip [ci skip]"
 
 deploy:
