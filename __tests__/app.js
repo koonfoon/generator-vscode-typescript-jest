@@ -22,6 +22,7 @@ describe("generator-vscode-typescript-jest:app", () => {
       "jest.config.js",
       "package.json",
       "tsconfig.json",
+      "tsc-multi.json",
     ]);
   });
 });

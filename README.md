@@ -75,7 +75,8 @@ This generator will not generate .git. Please run `git init` command yourself.
 ## Change logs
 
 - vNESXT
-  - some implementation
+  - [tsc-multi](https://www.npmjs.com/package/tsc-multi) for transpiling code to ES Modules and Commanjs at the same time.
+  - [rimraf](https://www.npmjs.com/package/rimraf) for cross platform ```rm -rf``` command, use for removing previous transpiled codes before transpiling new one.  
 - v0.2.38
   - change .eslintrc.js to json file (work better with vscode v1.53)
   - change .prettierrc.js to json file (work better with vscode v1.53)

@@ -75,10 +75,6 @@ module.exports = class extends Generator {
       this.templatePath("jest.config.js.temp"),
       this.destinationPath("jest.config.js")
     );
-    // This.fs.copy(
-    //   this.templatePath("package-lock.json"),
-    //   this.destinationPath("package-lock.json")
-    // );
     this.fs.copyTpl(
       this.templatePath("package.json.temp"),
       this.destinationPath("package.json"),
@@ -92,6 +88,10 @@ module.exports = class extends Generator {
     this.fs.copy(
       this.templatePath("tsconfig.json.temp"),
       this.destinationPath("tsconfig.json")
+    );
+    this.fs.copy(
+      this.templatePath("tsc-multi.json.temp"),
+      this.destinationPath("tsc-multi.json")
     );
     // Creating project directory
     fse.ensureDir("./src");
