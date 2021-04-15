@@ -25,6 +25,7 @@
     "husky": "*",
     "jest": "*",
     "lint-staged": "*",
+    "np": "^7.4.0",
     "prettier": "*",
     "yeoman-assert": "*",
     "yeoman-test": "*"
@@ -79,7 +80,8 @@
     "test": "jest --coverage",
     "test:coverallsVerbose": "jest --coverage && cat ./coverage/lcov.info | coveralls -v",
     "test:coveralls": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "test:coverallsLocal": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "test:coverallsLocal": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "release": "np"
   },
   "license": "MIT"
 }
