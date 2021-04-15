@@ -15,7 +15,7 @@ script:
 after_success:
   - echo -e "Test Success"
   - docker pull gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
-  - docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo -output json -showvariable FullSemVer
+  - docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo
 
 after_script:
   - sed -i 's|SF:../../home/travis/build/koonfoon/generator-vscode-typescript-jest/|SF:|g' coverage/lcov.info && cat ./coverage/lcov.info | coveralls -v
