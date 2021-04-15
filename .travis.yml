@@ -8,7 +8,8 @@ node_js:
 
 before_install:
   - docker pull gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
-  - docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo
+  - docker image ls
+  # - docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo
 
 install:
   - npm ci
