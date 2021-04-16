@@ -12,6 +12,21 @@ node_js:
   - "14"
 
 before_install:
+  # - pwd
+  # - ls -la
+  # - docker pull gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
+  # - docker image ls
+  # - export GitVersion_FullSemVer=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo -output json -showvariable FullSemVer)
+  # - echo $GitVersion_FullSemVer
+  # - export GitVersion_Output=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo)
+  # - echo $GitVersion_Output
+  # - docker run --rm -v $(pwd):/repo gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo -output json -showvariable FullSemVer
+
+install:
+  - npm ci
+
+script:
+  # - npm run test
   - pwd
   - ls -la
   - docker pull gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
@@ -20,13 +35,6 @@ before_install:
   - echo $GitVersion_FullSemVer
   - export GitVersion_Output=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo)
   - echo $GitVersion_Output
-  # - docker run --rm -v $(pwd):/repo gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo -output json -showvariable FullSemVer
-
-install:
-  - npm ci
-
-script:
-  - npm run test
 
 after_success:
   # - ls -la GitVersion.yml
