@@ -18,8 +18,7 @@ before_install:
   - docker image ls
   - export GitVersion_FullSemVer=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo -output json -showvariable FullSemVer)
   - echo $GitVersion_FullSemVer
-  - export GitVersion_Output $(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo)
-  - echo $GitVersion_Output
+  - export GitVersion_Output=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo
   # - docker run --rm -v $(pwd):/repo gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo -output json -showvariable FullSemVer
 
 install:
