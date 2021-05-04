@@ -11,6 +11,9 @@ services:
 node_js:
   - "14"
 
+git:
+  depth: false
+
 before_install:
   # - pwd
   # - ls -la
