@@ -30,11 +30,11 @@ install:
 
 script:
   # - npm run test
-  - git branch
-  - git branch --show-current
   - echo $TRAVIS_BRANCH
   - echo $Git_Branch
   - git switch $Git_Branch
+  - git branch
+  - git branch --show-current
   #- export Git_Branch=$(echo $TRAVIS_BRANCH)
   #- echo $Git_Branch
   - pwd
