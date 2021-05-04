@@ -30,11 +30,12 @@ install:
 
 script:
   # - npm run test
-  - git branch
-  - git branch --show-current
   - echo $TRAVIS_BRANCH
   - export Git_Branch=$(echo $TRAVIS_BRANCH)
   - echo $Git_Branch
+  - git switch $Git_Branch
+  - git branch
+  - git branch --show-current
   - pwd
   - ls -la
   - docker pull gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
