@@ -45,6 +45,7 @@ after_success:
   - git switch $Git_Branch
   - git branch
   - git branch --show-current
+  - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
   - docker pull gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
   - export GitVersion_FullSemVer=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo -output json -showvariable FullSemVer)
   - echo $GitVersion_FullSemVer
