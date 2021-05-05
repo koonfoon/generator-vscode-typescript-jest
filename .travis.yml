@@ -1,66 +1,41 @@
 notifications:
   email: false
-
 language: node_js
-
 services:
-  - docker
-
+- docker
 node_js:
-  - "14"
-
+- '14'
 git:
   depth: false
-
-before_install:
-  # - pwd
-  # - ls -la
-  # - docker pull gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
-  # - docker image ls
-  # - export GitVersion_FullSemVer=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo -output json -showvariable FullSemVer)
-  # - echo $GitVersion_FullSemVer
-  # - export GitVersion_Output=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo)
-  # - echo $GitVersion_Output
-  # - docker run --rm -v $(pwd):/repo gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo -output json -showvariable FullSemVer
-
+before_install: 
 install:
-  - npm ci
-
+- npm ci
 script:
-  - npm run test
-  # - pwd
-  # - ls -la
-  # - docker pull gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
-  # - docker image ls
-  # - export GitVersion_FullSemVer=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo -output json -showvariable FullSemVer)
-  # - echo $GitVersion_FullSemVer
-  # - export GitVersion_Output=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo)
-  # - echo $GitVersion_Output
-
+- npm run test
 after_success:
-  - echo -e "Test Success"
-
+- echo -e "Test Success"
 after_script:
-  - sed -i 's|SF:../../home/travis/build/koonfoon/generator-vscode-typescript-jest/|SF:|g' coverage/lcov.info && cat ./coverage/lcov.info | coveralls -v
-
+- sed -i 's|SF:../../home/travis/build/koonfoon/generator-vscode-typescript-jest/|SF:|g'
+  coverage/lcov.info && cat ./coverage/lcov.info | coveralls -v
 before_deploy:
-  - echo $TRAVIS_BRANCH
-  - export Git_Branch=$(echo $TRAVIS_BRANCH)
-  - echo $Git_Branch
-  - git switch $Git_Branch
-  - git branch
-  - git branch --show-current
-  - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
-  - docker pull gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
-  - export GitVersion_FullSemVer=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo -output json -showvariable FullSemVer)
-  - echo $GitVersion_FullSemVer
-  - npm run release -- $GitVersion_FullSemVer --no-tests --no-publish --no-yarn --message "'%s' +semver:skip [ci skip]"
-
+- echo $TRAVIS_BRANCH
+- export Git_Branch=$(echo $TRAVIS_BRANCH)
+- echo $Git_Branch
+- git switch $Git_Branch
+- git branch
+- git branch --show-current
+- echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
+- docker pull gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
+- export GitVersion_FullSemVer=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
+  /repo -output json -showvariable FullSemVer)
+- echo $GitVersion_FullSemVer
+- npm run release -- $GitVersion_FullSemVer --no-tests --no-publish --no-yarn --message
+  "'%s' +semver:skip [ci skip]"
 deploy:
   provider: npm
   skip_cleanup: true
-  email: "koonfoon@gmail.com"
+  email: koonfoon@gmail.com
   api_key:
-    secure: IlAHd4hWqcQ2kTI0+ktUrKpp8LAGsWf3UjQ8edj1Dt51E2ySSEJ7KpjkTwTwM8i+a7n34HMiT7eOhYhkNA37YpdF7HhdmLZcpMDIJwuj+LmgfRDOs4Z/IAyaK4fPSEErrpItOeOYW8y4FFrO9OtaFWJZ8Ckk/k/tfPgVQzrFgyMgpfNpz82ZdSI7XSBqqcISuUtLbkx/5E5SGbRxk4wCl6GN6JBvXJhVtfFiDl5/z0eYfNZx6fBcgO1DI8J4FS5EcGIKBBt4WRKC+qIVaqHojV7tLCON2smU2F+uRSnuTTdDJfQezrDEeOdyOjPuNwUGA2/xeNvIWAxndmHwrsypnTpgb/pwdqHPqTrsg14mbS3HJlrGL14gwNrZY24gYSQTqvYC7O2bCf0w391Ydlv+6+Ry4dDBFCJA6+mPatTT+jinaHbZO5YBxDKToj4e9KqfMuXCT4bp4tYd9PMMFICbrsquaoE/b303pqFVJbRwIpl1FQXMg/Mo1fE/20KaTU/O4E3KiXOM3+9J6yPZPbWMaXhky91OsPlOra67c/w+nXQMdu05E7qJCajXYQFwsC9sUp+YWC71WKtHBhXwldVYgXSbxlnGRPq6woDhzrJA+mN/x8aFhx5g/+OBpPJzG9VicNjIAHkAzJqAiQ5FuTFH42SKiNPg7bsJq4jNZIvu3Sk=
+    secure: bnvFyupWKWaZ79BJ00gOzMq2Z1e/QzNGoESe2GD5hhUDF5vmd4SxuJ2iK1TfeRHPBEO79QmWjUcg5uaGQx3dXDsXFnen8gwZivEQ9wHGRPhvcorZwWwrnzmKrFiXH+0T7cs3U4EltJZss0c8DA66XAhJW6SqBTc9Zn/t2wQMT4nE9EC5GAGzeI0olSFoNqWAWEleo1oc9kfrMfA/abkMqzIyjTiWAaOI+Nwt8I9VsXxGOwL5hpXUuRMdRcKWR43dWgpnFC7JEPwszPwhfRQBI3OcX7+8Nw5LNkSqQ8cVDbY73LUYEZq+cA9ALWxGiCLsMPc/btzgEsL2dx+nhICxGzByrvP+3hSYfTai0fg8o7zYkNWIWp0031+DGwrDopk7iaflZRCuFQxgIZWN7dp2OCX4DttZJdQIeetC8LFskriy8sLpX0ANjq45EwvOV3eFuWsqMzGOIfJ+aW/A4kT0ONJbt1Sese8A+Fc7R2jaM1pcQ/nTrF9Ee7tvKLywoyEh6TQCYhbh4qJiPz8UraiL9x5zak05aoVdnpd4GVsWwJmk8qI4Z2xxreTEAW9d6pI+C1C+qPkD2r2rXUngqUBSPUn3UJC5xxW6JSgx77tDfXBblDO2nQSbehrfR5nmoS6KyNq1gJCdhDAf0Ge/Xeh8mPbcPxmkcK83+rpcgLnpZLI=
   on:
     branch: master
