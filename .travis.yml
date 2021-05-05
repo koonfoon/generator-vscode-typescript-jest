@@ -39,6 +39,11 @@ script:
 
 after_success:
   - echo -e "Test Success"
+
+after_script:
+  - sed -i 's|SF:../../home/travis/build/koonfoon/generator-vscode-typescript-jest/|SF:|g' coverage/lcov.info && cat ./coverage/lcov.info | coveralls -v
+
+before_deploy:
   - echo $TRAVIS_BRANCH
   - export Git_Branch=$(echo $TRAVIS_BRANCH)
   - echo $Git_Branch
@@ -49,21 +54,13 @@ after_success:
   - docker pull gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
   - export GitVersion_FullSemVer=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo -output json -showvariable FullSemVer)
   - echo $GitVersion_FullSemVer
-  - npm run release -- $GitVersion_FullSemVer --no-tests --no-publish --no-yarn --preview --message "'%s' +semver:skip [ci skip]"
+  - npm run release -- $GitVersion_FullSemVer --no-tests --no-publish --no-yarn --message "'%s' +semver:skip [ci skip]"
 
-after_script:
-  - sed -i 's|SF:../../home/travis/build/koonfoon/generator-vscode-typescript-jest/|SF:|g' coverage/lcov.info && cat ./coverage/lcov.info | coveralls -v
-#before_deploy:
-# - docker pull gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
-# - export GitVersion_FullSemVer=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1 /repo -output json -showvariable FullSemVer)
-# - echo $GitVersion_FullSemVer
-# - npm run release -- $GitVersion_FullSemVer --no-tests --no-publish --no-yarn --message "'%s' +semver:skip [ci skip]"
-
-#deploy:
-# provider: npm
-# skip_cleanup: true
-# email: "koonfoon@gmail.com"
-# api_key:
-# secure: IlAHd4hWqcQ2kTI0+ktUrKpp8LAGsWf3UjQ8edj1Dt51E2ySSEJ7KpjkTwTwM8i+a7n34HMiT7eOhYhkNA37YpdF7HhdmLZcpMDIJwuj+LmgfRDOs4Z/IAyaK4fPSEErrpItOeOYW8y4FFrO9OtaFWJZ8Ckk/k/tfPgVQzrFgyMgpfNpz82ZdSI7XSBqqcISuUtLbkx/5E5SGbRxk4wCl6GN6JBvXJhVtfFiDl5/z0eYfNZx6fBcgO1DI8J4FS5EcGIKBBt4WRKC+qIVaqHojV7tLCON2smU2F+uRSnuTTdDJfQezrDEeOdyOjPuNwUGA2/xeNvIWAxndmHwrsypnTpgb/pwdqHPqTrsg14mbS3HJlrGL14gwNrZY24gYSQTqvYC7O2bCf0w391Ydlv+6+Ry4dDBFCJA6+mPatTT+jinaHbZO5YBxDKToj4e9KqfMuXCT4bp4tYd9PMMFICbrsquaoE/b303pqFVJbRwIpl1FQXMg/Mo1fE/20KaTU/O4E3KiXOM3+9J6yPZPbWMaXhky91OsPlOra67c/w+nXQMdu05E7qJCajXYQFwsC9sUp+YWC71WKtHBhXwldVYgXSbxlnGRPq6woDhzrJA+mN/x8aFhx5g/+OBpPJzG9VicNjIAHkAzJqAiQ5FuTFH42SKiNPg7bsJq4jNZIvu3Sk=
-# on:
-#  branch: master
+deploy:
+  provider: npm
+  skip_cleanup: true
+  email: "koonfoon@gmail.com"
+  api_key:
+    secure: IlAHd4hWqcQ2kTI0+ktUrKpp8LAGsWf3UjQ8edj1Dt51E2ySSEJ7KpjkTwTwM8i+a7n34HMiT7eOhYhkNA37YpdF7HhdmLZcpMDIJwuj+LmgfRDOs4Z/IAyaK4fPSEErrpItOeOYW8y4FFrO9OtaFWJZ8Ckk/k/tfPgVQzrFgyMgpfNpz82ZdSI7XSBqqcISuUtLbkx/5E5SGbRxk4wCl6GN6JBvXJhVtfFiDl5/z0eYfNZx6fBcgO1DI8J4FS5EcGIKBBt4WRKC+qIVaqHojV7tLCON2smU2F+uRSnuTTdDJfQezrDEeOdyOjPuNwUGA2/xeNvIWAxndmHwrsypnTpgb/pwdqHPqTrsg14mbS3HJlrGL14gwNrZY24gYSQTqvYC7O2bCf0w391Ydlv+6+Ry4dDBFCJA6+mPatTT+jinaHbZO5YBxDKToj4e9KqfMuXCT4bp4tYd9PMMFICbrsquaoE/b303pqFVJbRwIpl1FQXMg/Mo1fE/20KaTU/O4E3KiXOM3+9J6yPZPbWMaXhky91OsPlOra67c/w+nXQMdu05E7qJCajXYQFwsC9sUp+YWC71WKtHBhXwldVYgXSbxlnGRPq6woDhzrJA+mN/x8aFhx5g/+OBpPJzG9VicNjIAHkAzJqAiQ5FuTFH42SKiNPg7bsJq4jNZIvu3Sk=
+  on:
+    branch: master
