@@ -29,8 +29,7 @@ before_deploy:
   - export GitVersion_FullSemVer=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
     /repo -output json -showvariable FullSemVer)
   - echo $GitVersion_FullSemVer
-  - npm run release -- $GitVersion_FullSemVer --no-tests --no-publish --no-yarn --preview
-    --message "'%s' +semver:skip [ci skip]"
+  - npm run release -- $GitVersion_FullSemVer --no-tests --no-publish --no-yarn --message "'%s' +semver:skip [ci skip]"
 deploy:
   provider: npm
   skip_cleanup: true
