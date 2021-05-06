@@ -38,4 +38,3 @@ deploy:
   email: koonfoon@gmail.com
   on:
     branch: master
-  api_token: 1234-134545-13455-11545tvbh
