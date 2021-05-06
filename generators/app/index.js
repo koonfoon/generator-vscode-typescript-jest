@@ -1,3 +1,4 @@
+// Some tesitng comment
 "use strict";
 const Generator = require("yeoman-generator");
 const chalk = require("chalk");
