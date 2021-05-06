@@ -29,7 +29,7 @@ before_deploy:
 - export GitVersion_FullSemVer=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
   /repo -output json -showvariable FullSemVer)
 - echo $GitVersion_FullSemVer
-- npm run release -- $GitVersion_FullSemVer --no-tests --no-publish --no-yarn -- preview --message
+- npm run release -- $GitVersion_FullSemVer --no-tests --no-publish --no-yarn --preview --message
   "'%s' +semver:skip [ci skip]"
 deploy:
   provider: npm
@@ -38,5 +38,4 @@ deploy:
   email: koonfoon@gmail.com
   on:
     branch: master
-  api_token:
-    secure: M/KPaJCxsIHRbimnFE1Xd9fshJ6CiwmMIS0G1+ME9NtpanZ5UwQ7zZGgsBc46udK+BpdhAiSD2Z1lGRWcBNm4IRgYSZpSVn1T5jey4ic+WoL1CEiSQdX/q/4zuVLLJ8bi1NMxBy+vqCsi1TdXRuBlMJrYS8FM1Mz9VzNf7HYoqR2YaF2xZzWszphezllydG2LX5Ja2BAkFqnVDTVGrH82jytJIe8uANQ8CQBxJO1fn8GpeIibUjeatP962+ZMBHiNS52p1v9/L3kUftgeGWVXI2dP3AQYhXYWM+I9Z3xK7tTtQ+joMnSyf4DCHkdQRdnYpXF7eKZbF0NMML5kV1sx6fLogZ3YtFS0kFyC5Km9/7ckw6syW15F/zO3w+opUVCcP9lG9ruQHJvI53FyN5ZRccQEAIxzfgwnxljJeBRLdo3QJnv2wqpJT0lJiGGSJgjZnvwN1kY2ZOMN/Sean9yxn5hIRVBE9MYLQOMDH0msU2AfFfERQIy0McO2HE=
+  api_token: 1234-134545-13455-11545tvbh
