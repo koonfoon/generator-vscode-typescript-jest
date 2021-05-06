@@ -2,41 +2,40 @@ notifications:
   email: false
 language: node_js
 services:
-- docker
+  - docker
 node_js:
-- '14'
+  - "14"
 git:
   depth: false
-before_install: 
+before_install:
 install:
-- npm ci
+  - npm ci
 script:
-- npm run test
+  - npm run test
 after_success:
-- echo -e "Test Success"
+  - echo -e "Test Success"
 after_script:
-- sed -i 's|SF:../../home/travis/build/koonfoon/generator-vscode-typescript-jest/|SF:|g'
-  coverage/lcov.info && cat ./coverage/lcov.info | coveralls -v
+  - sed -i 's|SF:../../home/travis/build/koonfoon/generator-vscode-typescript-jest/|SF:|g'
+    coverage/lcov.info && cat ./coverage/lcov.info | coveralls -v
 before_deploy:
-- echo $TRAVIS_BRANCH
-- export Git_Branch=$(echo $TRAVIS_BRANCH)
-- echo $Git_Branch
-- git switch $Git_Branch
-- git branch
-- git branch --show-current
-- echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
-- docker pull gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
-- export GitVersion_FullSemVer=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
-  /repo -output json -showvariable FullSemVer)
-- echo $GitVersion_FullSemVer
-- npm run release -- $GitVersion_FullSemVer --no-tests --no-publish --no-yarn --preview
-  --message "'%s' +semver:skip [ci skip]"
+  - echo $TRAVIS_BRANCH
+  - export Git_Branch=$(echo $TRAVIS_BRANCH)
+  - echo $Git_Branch
+  - git switch $Git_Branch
+  - git branch
+  - git branch --show-current
+  - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
+  - docker pull gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
+  - export GitVersion_FullSemVer=$(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.3.5-linux-alpine.3.10-x64-netcoreapp3.1
+    /repo -output json -showvariable FullSemVer)
+  - echo $GitVersion_FullSemVer
+  - npm run release -- $GitVersion_FullSemVer --no-tests --no-publish --no-yarn --preview
+    --message "'%s' +semver:skip [ci skip]"
 deploy:
   provider: npm
   skip_cleanup: true
   dry_run: true
   email: koonfoon@gmail.com
+  api_key: $NPM_API_TOKEN
   on:
     branch: master
-  api_token:
-    secure: ji39CbWTrtST2+KJrPyh924dfH4zJZRAePa147amGETW3uFOQIlQHPIQ/k2ja3mapg2vzuJ0qNrJAfhtOk1y7qqIx4nU1qEH91qrtzbdOKOG17tiAawbc58AldV8InLDUWDzp7ZBwJnsD+CeDdk3iLxmXRt3t+olNQ9ROrMshgZh2VHzW5UZ1EaRsPFL4qgaXUZ20RmarO8LQGJ/TmX1mf5n+q3IkI057cXqFKGSms30YmDb3vPXt4eO+slhFZoMTX81AqY0iHcNJTtyBDZYIOg7hTupm0xn3xafeYrT75UjczMuk1bDQSMJ2IX1dQ0iFqL6ttFD+u7HDkF4yA4LO4wDwesZHtv1HGx1FNnP4kNzn7xB7weCRuuBUyFClWjo+2PlYah49UZ43lgBs5ovDokFL/dKd31D/LlHMAtkrU+MTwjPnwCO11HullHnKbDksMlobE8w4sCE+g1+4H8o0qrDoTpx7hiNEorpFXgsoXTdqgfAd+m3QvnVuW3sX4yIneqw6xTttctVt08gSq+Ywqqha/3PBXfL+maB5k1URDPp/dypWz8MsZ1PTurnWYYFaWajxrVQOjVAWXb+Bgwrnzelzaow02O0Cpy1tajaMxBxFbQeSqedXFdAoBXI6e+wctH7rMxPdYp/v3mChulqqDACgB03au0/6LGK353K9DQ=
