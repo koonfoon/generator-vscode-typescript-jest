@@ -74,6 +74,9 @@ This generator will not generate .git. Please run `git init` command yourself.
 
 ## Change logs
 
+- v@NEXT_RELEASE_VERSION@
+  - (not package feature related) Use "sed" command to auto replace release version number in "Change Logs" section in README
+
 - v0.3.0
   - [tsc-multi](https://www.npmjs.com/package/tsc-multi) for transpiling code to ES Modules and Commanjs at the same time.
   - [rimraf](https://www.npmjs.com/package/rimraf) for cross platform ```rm -rf``` command, use for removing previous transpiled codes before transpiling new one.  
