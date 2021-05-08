@@ -74,7 +74,7 @@ This generator will not generate .git. Please run `git init` command yourself.
 
 ## Change logs
 
-- v[NEXT_RELEASE_VERSION]
+- v@NEXT_RELEASE_VERSION@
   - some implementation 1
   - some implementation 2
 
