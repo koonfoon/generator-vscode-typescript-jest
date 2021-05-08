@@ -11,6 +11,7 @@ before_install:
 install:
   - npm ci
 script:
+  - git config --get remote.origin.url
   - npm run test
 after_success:
   - echo -e "Test Success"
@@ -31,6 +32,8 @@ before_deploy:
   - echo $GitVersion_FullSemVer
   - sed -i "s/@NEXT_RELEASE_VERSION@/$GitVersion_FullSemVer/" README.md
   - git add README.md
+  - git commit -m "commit change of auto replaced version number in README.md"
+  # - git 
   - npm run release -- $GitVersion_FullSemVer --no-tests --no-publish --no-yarn --message "'%s' +semver:skip [ci skip]"
 deploy:
   provider: npm
