@@ -74,6 +74,9 @@ This generator will not generate .git. Please run `git init` command yourself.
 
 ## Change logs
 
+- @NEXT_RELEASE_VERSION@
+  - Removed "package-lock" template file
+
 - v0.3.22
   - (not package feature related) Use "sed" command to auto replace release version number in "Change Logs" section in README
 
