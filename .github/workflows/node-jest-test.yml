@@ -10,6 +10,11 @@ on:
 
 jobs:
   build:
+
+    permissions:
+        checks: write
+        pull-requests: write
+        contents: write
     
     # Don't know run if trigger by dependabot, but run if tirgger manually
     if: ${{ github.triggering_actor != 'dependabot[bot]' }}  
