@@ -23,7 +23,7 @@
     "eslint-config-xo": "*",
     "eslint-plugin-prettier": "*",
     "husky": "*",
-    "jest": "*",
+    "jest": "^29.6.2",
     "lint-staged": "*",
     "np": "^7.4.0",
     "prettier": "*",
@@ -40,9 +40,6 @@
     "npm-author-name": "*",
     "yeoman-generator": "*",
     "yosay": "*"
-  },
-  "jest": {
-    "testEnvironment": "node"
   },
   "lint-staged": {
     "*.js": [
