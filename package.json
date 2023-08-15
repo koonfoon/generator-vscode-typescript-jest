@@ -1,7 +1,7 @@
 {
   "name": "generator-vscode-typescript-jest",
-  "version": "0.3.25",
-  "description": "vscode with typescript and jest project generator",
+  "version": "0.0.0",
+  "description": "",
   "homepage": "",
   "author": {
     "name": "koonfoon",
@@ -17,29 +17,28 @@
     "yeoman-generator"
   ],
   "devDependencies": {
-    "coveralls": "*",
-    "eslint": "*",
-    "eslint-config-prettier": "*",
-    "eslint-config-xo": "*",
-    "eslint-plugin-prettier": "*",
-    "husky": "*",
-    "jest": "^29.6.2",
-    "lint-staged": "*",
-    "np": "^7.4.0",
-    "prettier": "*",
-    "yeoman-assert": "*",
-    "yeoman-test": "*"
+    "yeoman-test": "^1.7.0",
+    "yeoman-assert": "^3.1.1",
+    "coveralls": "^3.0.7",
+    "eslint": "^6.6.0",
+    "prettier": "^1.19.1",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.3",
+    "eslint-config-prettier": "^6.6.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-config-xo": "^0.27.2",
+    "jest": "^26.1.0"
   },
   "engines": {
     "npm": ">= 4.0.0"
   },
   "dependencies": {
-    "chalk": "*",
-    "fs-extra": "*",
-    "generator-license": "*",
-    "npm-author-name": "*",
-    "yeoman-generator": "*",
-    "yosay": "*"
+    "yeoman-generator": "^3.1.1",
+    "chalk": "^2.1.0",
+    "yosay": "^2.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "lint-staged": {
     "*.js": [
@@ -74,11 +73,8 @@
   },
   "scripts": {
     "pretest": "eslint .",
-    "test": "jest --coverage --json",
-    "test:coverallsVerbose": "jest --coverage && cat ./coverage/lcov.info | coveralls -v",
-    "test:coveralls": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "test:coverallsLocal": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "release": "np"
+    "test": "jest"
   },
+  "repository": "git@github.com:koonfoon/generator-vscode-typescript-jest.git",
   "license": "MIT"
 }
