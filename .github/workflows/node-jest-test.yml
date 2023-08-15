@@ -17,13 +17,7 @@ jobs:
             - uses: actions/checkout@v3
 
             - name: Jest test
-              run: |
-                npm ci
-                npm run test
-
-            - name: Report coverage
-              uses: ArtiomTr/jest-coverage-report-action@v2
-              with:
-                skip-step: all
-                coverage-file: ./coverage/coverage-final.json
-                base-coverage-file: ./coverage/coverage-final.json
+              uses: willcaul/jest-github-action@v2
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                
