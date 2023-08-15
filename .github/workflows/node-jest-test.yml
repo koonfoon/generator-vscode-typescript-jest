@@ -16,6 +16,9 @@ jobs:
         steps:
             - uses: actions/checkout@v3
 
+            - name: npm install
+              run: npm ci
+
             - name: Jest test
               uses: willcaul/jest-github-action@v2
               env:
