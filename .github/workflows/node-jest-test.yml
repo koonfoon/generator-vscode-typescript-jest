@@ -1,14 +1,14 @@
-name: 'coverage'
+name: "coverage"
 on:
-    pull_request:
-        branches:
-            - master
-            - main
+  pull_request:
+    branches:
+      - master
+      - main
 jobs:
-    coverage:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - uses: ArtiomTr/jest-coverage-report-action@v2
-            - run: ls -la
-        
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ArtiomTr/jest-coverage-report-action@v2
+      - name: ls
+        run: ls
