@@ -74,7 +74,7 @@
   },
   "scripts": {
     "pretest": "eslint .",
-    "test": "jest --coverage",
+    "test": "jest --coverage --json",
     "test:coverallsVerbose": "jest --coverage && cat ./coverage/lcov.info | coveralls -v",
     "test:coveralls": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "test:coverallsLocal": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
