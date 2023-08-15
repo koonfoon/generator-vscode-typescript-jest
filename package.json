@@ -72,7 +72,6 @@
     ]
   },
   "scripts": {
-    "pretest": "eslint .",
     "test": "jest"
   },
   "repository": "git@github.com:koonfoon/generator-vscode-typescript-jest.git",
