@@ -1,0 +1,9 @@
+{
+    "generator-node": {
+      "promptValues": {
+        "authorName": "koonfoon",
+        "authorEmail": "koonfoon@gmail.com",
+        "authorUrl": ""
+      }
+    }
+  }
