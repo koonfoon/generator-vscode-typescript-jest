@@ -1,0 +1,12 @@
+{
+  "name": "<%= packageAppName %>",
+  "version": "<%= packageAppStartVersion %>",
+  "description": "<%= packageAppDescription %>",
+  "author": "<%= packageAppAuthor %>",
+  "main": "./dist/index.js",
+  "scripts": {
+    "tsc": "tsc --noEmitOnError",
+    "dev": "ts-node-dev --respawn --transpile-only ./src/index.ts",
+    "test": "jest"
+  }
+}
