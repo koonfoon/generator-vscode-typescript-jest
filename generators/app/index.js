@@ -83,6 +83,10 @@ module.exports = class extends Generator {
       this.destinationPath(".prettierrc.json")
     );
     this.fs.copy(
+      this.templatePath("index.test.temp.ts"),
+      this.destinationPath("./__tests__/index.test.ts")
+    );
+    this.fs.copy(
       this.templatePath("index.temp.ts"),
       this.destinationPath("./src/index.ts")
     );

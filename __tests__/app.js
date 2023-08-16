@@ -20,7 +20,9 @@ describe("generator-vscode-typescript-jest:app", () => {
       ".prettierrc.json",
       "jest.config.js",
       "package.json",
-      "tsconfig.json"
+      "tsconfig.json",
+      "./src/index.ts",
+      "./__tests__/index.test.ts"
     ]);
   });
 });
