@@ -7,7 +7,8 @@
   "scripts": {
     "tsc": "tsc --noEmitOnError",
     "dev": "ts-node-dev --respawn --transpile-only ./src/index.ts",
-    "test": "jest"
+    "test": "jest",
+    "build:tsup": "tsup src/index.ts --format cjs,esm --dts"
   },
   "devDependencies": {
     "@types/jest": "^29.0.3",
@@ -23,6 +24,7 @@
     "ts-jest": "^29.0.1",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^4.8.3"
+    "typescript": "^4.8.3",
+    "tsup": "^7.2.0"
   }
 }
