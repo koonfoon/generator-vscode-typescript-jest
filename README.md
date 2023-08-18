@@ -22,7 +22,7 @@ yo vscode-typescript-jest
 ```
 
 > **Note**  
-> You should run `npx ncu` check and update the dependencies, as newer version may had released since the publication of this generator.
+> You should run `npx npm-check-updates` check and update the dependencies, as newer version may had released since the publication of this generator.
 
 ## Directory structure
 
