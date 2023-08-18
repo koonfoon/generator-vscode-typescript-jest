@@ -1,7 +1,7 @@
 {
   "name": "generator-vscode-typescript-jest",
-  "version": "0.3.25",
-  "description": "vscode with typescript and jest project generator",
+  "version": "0.0.0",
+  "description": "",
   "homepage": "",
   "author": {
     "name": "koonfoon",
@@ -17,29 +17,28 @@
     "yeoman-generator"
   ],
   "devDependencies": {
-    "coveralls": "*",
-    "eslint": "*",
-    "eslint-config-prettier": "*",
-    "eslint-config-xo": "*",
-    "eslint-plugin-prettier": "*",
-    "husky": "*",
-    "jest": "*",
-    "lint-staged": "*",
-    "np": "^7.4.0",
-    "prettier": "*",
-    "yeoman-assert": "*",
-    "yeoman-test": "*"
+    "coveralls": "^3.0.7",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.6.0",
+    "eslint-config-xo": "^0.27.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.0.9",
+    "jest": "^26.1.0",
+    "lint-staged": "^9.4.3",
+    "prettier": "^1.19.1",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^1.7.0"
   },
   "engines": {
-    "npm": ">= 4.0.0"
+    "npm": ">= 4.0.0",
+    "node": ">= 16.0.0"
   },
   "dependencies": {
-    "chalk": "*",
-    "fs-extra": "*",
-    "generator-license": "*",
-    "npm-author-name": "*",
-    "yeoman-generator": "*",
-    "yosay": "*"
+    "chalk": "^2.1.0",
+    "fs-extra": "^11.1.1",
+    "generator-license": "^5.5.0",
+    "yeoman-generator": "^3.1.1",
+    "yosay": "^2.0.2"
   },
   "jest": {
     "testEnvironment": "node"
@@ -76,12 +75,8 @@
     ]
   },
   "scripts": {
-    "pretest": "eslint .",
-    "test": "jest --coverage",
-    "test:coverallsVerbose": "jest --coverage && cat ./coverage/lcov.info | coveralls -v",
-    "test:coveralls": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "test:coverallsLocal": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "release": "np"
+    "test": "jest"
   },
+  "repository": "git@github.com:koonfoon/generator-vscode-typescript-jest.git",
   "license": "MIT"
 }

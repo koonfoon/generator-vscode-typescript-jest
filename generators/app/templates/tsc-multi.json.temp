@@ -1,7 +1,0 @@
-{
-    "targets": [
-        {"extname": ".mjs", "module": "esnext", "target": "es2020", "outDir": "./build/esm"},
-        {"extname": ".cjs", "module": "commonjs", "target": "es2020", "outDir": "./build/cjs"}
-    ],
-    "projects": ["./tsconfig.json"]
-}

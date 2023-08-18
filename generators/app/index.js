@@ -1,4 +1,3 @@
-// Some tesitng comment
 "use strict";
 const Generator = require("yeoman-generator");
 const chalk = require("chalk");
@@ -10,7 +9,7 @@ module.exports = class extends Generator {
     // Have Yeoman greet the user.
     this.log(
       yosay(
-        `Welcome to the praiseworthy ${chalk.red(
+        `Welcome to the lovely ${chalk.red(
           "generator-vscode-typescript-jest"
         )} generator!`
       )
@@ -23,86 +22,91 @@ module.exports = class extends Generator {
       //   message: "Would you like to enable this option?",
       //   default: true,
       // },
-      // Ask user for project name
+
+      // ASk for project/app name
       {
         type: "input",
         name: "appName",
         message: "Your project name",
-        default: this.appname,
+        default: this.appname
       },
+
+      // Project staring version
       {
         type: "input",
         name: "appStartVersion",
         message: "Project version",
-        default: "0.0.0",
+        default: "0.0.0"
       },
+
+      // Project description
       {
         type: "input",
         name: "appDescription",
-        message: "Project description:",
+        message: "Project description:"
       },
+
+      // Project author name
       {
         type: "input",
         name: "appAuthorName",
         message: "Your name:",
-        default: this.user.git.name,
-      },
+        default: this.user.git.name
+      }
     ];
 
-    return this.prompt(prompts).then((props) => {
+    return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
       this.composeWith(require.resolve("generator-license"), {
-        name: this.props.appAuthorName,
+        name: this.props.appAuthorName
       });
     });
   }
 
   writing() {
-    // Copying all config files to project root directory
+    // Cresting project directory
+    fse.ensureDir("./src");
+    fse.ensureDir("./dist");
+    fse.ensureDir("./__tests__");
+
     this.fs.copy(
-      this.templatePath(".eslintrc.json.temp"),
+      this.templatePath(".eslintrc.temp.json"),
       this.destinationPath(".eslintrc.json")
     );
     this.fs.copy(
-      this.templatePath(".prettierignoreTemp"),
-      this.destinationPath(".prettierignore")
+      this.templatePath(".gitignore.temp"),
+      this.destinationPath(".gitignore")
     );
     this.fs.copy(
-      this.templatePath(".prettierrc.json.temp"),
+      this.templatePath(".prettierrc.temp.json"),
       this.destinationPath(".prettierrc.json")
     );
     this.fs.copy(
-      this.templatePath("jest.config.js.temp"),
+      this.templatePath("index.test.temp.ts"),
+      this.destinationPath("./__tests__/index.test.ts")
+    );
+    this.fs.copy(
+      this.templatePath("index.temp.ts"),
+      this.destinationPath("./src/index.ts")
+    );
+    this.fs.copy(
+      this.templatePath("jest.config.temp.js"),
       this.destinationPath("jest.config.js")
     );
     this.fs.copyTpl(
-      this.templatePath("package.json.temp"),
+      this.templatePath("package.temp.json"),
       this.destinationPath("package.json"),
       {
         packageAppName: this.props.appName,
         packageAppStartVersion: this.props.appStartVersion,
         packageAppDescription: this.props.appDescription,
-        packageAppAuthor: this.props.appAuthorName,
+        packageAppAuthor: this.props.appAuthorName
       }
     );
     this.fs.copy(
-      this.templatePath("tsconfig.json.temp"),
+      this.templatePath("tsconfig.temp.json"),
       this.destinationPath("tsconfig.json")
     );
-    this.fs.copy(
-      this.templatePath("tsc-multi.json.temp"),
-      this.destinationPath("tsc-multi.json")
-    );
-    // Creating project directory
-    fse.ensureDir("./src");
-    fse.ensureDir("./build");
-    fse.ensureDir("./__tests__");
-  }
-
-  install() {
-    this.installDependencies({
-      bower: false,
-    });
   }
 };

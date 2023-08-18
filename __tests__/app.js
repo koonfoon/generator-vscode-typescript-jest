@@ -10,19 +10,19 @@ describe("generator-vscode-typescript-jest:app", () => {
       appName: "App test name",
       appStartVersion: "1.0.1",
       appDescription: "App test description",
-      license: "MIT",
+      license: "MIT"
     });
   });
 
   it("creates files", () => {
     assert.file([
       ".eslintrc.json",
-      ".prettierignore",
       ".prettierrc.json",
       "jest.config.js",
       "package.json",
       "tsconfig.json",
-      "tsc-multi.json",
+      "./src/index.ts",
+      "./__tests__/index.test.ts"
     ]);
   });
 });

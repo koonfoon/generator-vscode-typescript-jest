@@ -1,7 +1,11 @@
-export default {
+module.exports = {
     "roots": [
       //"<rootDir>/src"
       "<rootDir>"
+    ],
+    "reporters": [
+      "default",
+      ["jest-junit", { outputDirectory: "./jest-report" }]
     ],
     "testMatch": [
       "**/__tests__/**/*.+(ts|tsx|js)",
