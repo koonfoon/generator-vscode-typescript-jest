@@ -1,4 +1,4 @@
-# generator-vscode-typescript-jest [![NPM version][npm-image]][npm-url][![coverage](https://github.com/koonfoon/generator-vscode-typescript-jest/actions/workflows/node-jest-test.yml/badge.svg)](https://github.com/koonfoon/generator-vscode-typescript-jest/actions/workflows/node-jest-test.yml)
+# generator-vscode-typescript-jest [![npm version](https://badge.fury.io/js/generator-vscode-typescript-jest.svg)](https://badge.fury.io/js/generator-vscode-typescript-jest)[![coverage](https://github.com/koonfoon/generator-vscode-typescript-jest/actions/workflows/node-jest-test.yml/badge.svg)](https://github.com/koonfoon/generator-vscode-typescript-jest/actions/workflows/node-jest-test.yml)
 
 ## Description
 
@@ -66,6 +66,3 @@ yo vscode-typescript-jest
 ## License
 
 MIT © [koonfoon]()
-
-[npm-image]: https://badge.fury.io/js/generator-vscode-typescript-jest.svg
-[npm-url]: https://npmjs.org/package/generator-vscode-typescript-jest
