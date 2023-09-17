@@ -1,0 +1,26 @@
+# This action is to check if the PR title contain "+semver: major | minor | patch | skip"
+
+name: 'Commit Message Check'
+
+on:
+  pull_request:
+    branches:
+      - 'master'
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+
+jobs:
+    check-pr-title:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Display PR title
+          run: echo The Title of your PR is ${{ github.event.pull_request.title }}
+          
+        - name: Check PR title
+          uses: Slashgear/action-check-pr-title@v4.3.0
+          with:
+            regexp: \+semver:\s?(major|minor|patch|skip)
+            helpMessage: "PR title must contain '+semver: major | minor | patch | skip'"
