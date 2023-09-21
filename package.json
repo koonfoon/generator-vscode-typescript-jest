@@ -75,7 +75,9 @@
     ]
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "np:publish": "np --message 'bump version to %s +semver: skip'",
+    "np:preview": "np --preview --message 'bump version to %s +semver: skip'"
   },
   "repository": "git@github.com:koonfoon/generator-vscode-typescript-jest.git",
   "license": "MIT"
